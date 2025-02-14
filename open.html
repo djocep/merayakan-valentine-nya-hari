@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angpau? Surat Cinta</title>
+    <link rel="stylesheet" href="styles2.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(document).ready(function () {
+    // Function to handle the animation
+    function animateCard() {
+        $('.card').stop().animate({
+            top: '-90px'
+        }, 'slow');
+    }
+
+    // Function to show the card from the envelope
+    function showCard() {
+        $('.card').stop().animate({
+            top: '0'
+        }, 'slow');
+    }
+
+    // Check if the device is mobile
+    if ($(window).width() <= 768) {
+        $('.envelope').on('click', function() {
+            animateCard(); // Animate card on envelope click
+            setTimeout(showCard, 500); // Show card after animation
+        });
+    } else {
+        $('.container').mouseenter(animateCard); // Use mouseenter for desktop
+    }
+
+    $('.container').mouseleave(function () {
+        $('.card').stop().animate({
+            top: 0
+        }, 'slow');
+    });
+});
+</script>
+</head>
+<body>
+    <div class="caption">Tekan Amplop untuk melihat isi surat yang lebih jelas.</div>
+    <div class="container">  
+        <div class="valentines">
+          <a href="letter.html">
+            <div class="envelope"></div>
+            <div class="front"></div>
+            <div class="card">
+              <div class="text">Merayakan</br> Valentine-nya</br> Hari!</div>
+              <div class="heart">
+              </div>
+              <div class="hearts">
+                <div class="one"></div>
+                <div class="two"></div>
+                <div class="three"></div>
+                <div class="four"></div>
+                <div class="five"></div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="shadow"></div>
+    </div>
+
+<!--    <script src="script2.js"></script> -->
+</body>
+</html>

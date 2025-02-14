@@ -1,0 +1,76 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F2F9FF;
+}
+
+.heart {
+    position: relative;
+    width: 100px;
+    height: 90px;
+    margin: 30px auto;
+    cursor: pointer;
+    animation: none;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.heart:before,
+.heart:after {
+    position: absolute;
+    content: "";
+    left: 50px;
+    top: 0;
+    width: 50px;
+    height: 80px;
+    background: #ff0000;  /* Solid red color */
+    border-radius: 50px 50px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+    transition: filter 0.3s ease;
+}
+
+.heart:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+/* Shadow effect only on hover */
+.heart:hover {
+    animation: heartbeat 1s infinite;
+    filter: drop-shadow(0 0 15px rgba(255, 0, 0, 0.7));
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.heart:active {
+    transform: scale(0.95);
+}
+
+
+
+@media (max-width: 768px) {
+    .heart {
+        animation: pulse 1s infinite;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
